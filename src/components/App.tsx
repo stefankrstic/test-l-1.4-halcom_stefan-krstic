@@ -1,9 +1,11 @@
 import React from "react";
-import './App.scss';
+import { Router } from './Router';
 
 export const App = () => {
   return (
-    <div className="App">Hello</div>
+    <div>
+      <Router />
+    </div>
   );
 }
 
