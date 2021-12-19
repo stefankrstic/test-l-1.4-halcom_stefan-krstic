@@ -1,0 +1,7 @@
+{
+    "seni": true,
+    "printWidth": 120,
+    "trailingConma": "all",
+    "singleQuote": true,
+    "tabWidth": 4
+}
