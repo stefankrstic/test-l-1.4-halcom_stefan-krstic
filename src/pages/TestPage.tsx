@@ -23,6 +23,21 @@ export const TestPage = () => {
             <BaseButton color="orange">Stop</BaseButton>
             </Col>
         </Row>
+        <Row>
+         <Col sm={3}>
+         <BaseButton color="red">Reset</BaseButton>
+         </Col>
+         <Col sm={3}>
+         <BaseButton color="blue">User info</BaseButton>
+         </Col>
+         <Col sm={3}>
+         <BaseButton color="blue">Stetistika</BaseButton>
+         </Col>
+         <Col sm={3}>
+         <BaseButton color="blue">Izadji</BaseButton>
+         </Col>
+         </Row>
+        
         </Container>
         </div>
     )
