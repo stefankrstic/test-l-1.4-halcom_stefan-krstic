@@ -1,17 +1,17 @@
 import React from "react";
 import { BaseButton } from "../components/BaseButton";
-import styles from './TestPage.module.scss'
+import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
 
 export const TestPage = () => {
     return (
-        <div>
+        <div className="TestPage"> 
             <Header title="Kandidat : Pera Peric" />
         <Container>
         <Row>
             <Col sm={8}>
-            <div className={styles.buttons}>
+            <div className="buttons">
             <BaseButton color="gray">1</BaseButton>
             <BaseButton color="gray">2</BaseButton>
             <BaseButton color="gray">3</BaseButton>

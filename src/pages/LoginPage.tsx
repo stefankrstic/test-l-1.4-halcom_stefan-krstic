@@ -5,11 +5,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 import { BaseButton } from "../components/BaseButton";
-import styles from './LoginPage.module.scss';
+import './LoginPage.scss';
 
 export const LoginPage = () => {
     return (
-        <div>
+        <div className="LoginPage">
             <Header title="Login stranica" centered />
             <Container>
                 <Row>
@@ -20,8 +20,8 @@ export const LoginPage = () => {
 
                     <Col md={2} />
 
-                    <Col className={styles.loginContainer} md={2}>
-                       <BaseButton className={styles.loginButton}>
+                    <Col className="loginContainer" md={2}>
+                       <BaseButton className="loginButton">
                        <FontAwesomeIcon icon={faArrowRight} />
                        Login</BaseButton>
                     </Col>

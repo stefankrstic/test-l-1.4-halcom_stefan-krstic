@@ -1,0 +1,20 @@
+.TestPage {
+    .BaseButton {
+        margin-bottom: 16px;;
+    }
+
+    .buttons {
+        display: flex;
+    }
+
+    .buttons > * {
+        margin-right: 16px;
+    
+    }
+    
+    .buttons > *:last-child {
+        margin-right: 0;
+    }
+}
+
+

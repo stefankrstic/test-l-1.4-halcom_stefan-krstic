@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { ReactNode } from "react";
-import styles from './BaseButton.module.scss';
+import './BaseButton.scss';
 
 interface BaseButtonProps {
     children: ReactNode;
@@ -9,6 +9,6 @@ interface BaseButtonProps {
 }
 
 export const BaseButton = ({children, className, color = 'blue'}: BaseButtonProps) => {
-    return <button className={clsx(styles.root, className, styles[color])}>{children}</button>
+    return <button className={clsx('BaseButton', className, color)}>{children}</button>
     
 };
