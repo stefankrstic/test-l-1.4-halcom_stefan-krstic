@@ -1,3 +1,5 @@
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React from "react";
 import styles from './Input.module.scss';
@@ -15,8 +17,11 @@ export const Input = ({label, error}: InputProps) => {
           <input className={clsx(styles.input, error && styles.invalid)} type="text" />
           </div>
     
-
-          <div className={styles.error}>{error}</div>
+        {error ? (
+          <div className={styles.error}>
+              <FontAwesomeIcon icon={faInfoCircle} />{error}
+              </div>
+              ) : null}
           </div>
     
   );
