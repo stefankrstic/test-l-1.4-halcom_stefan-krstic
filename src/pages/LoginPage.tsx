@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
+import { BaseButton } from "../components/BaseButton";
 
 export const LoginPage = () => {
     return (
@@ -15,7 +16,7 @@ export const LoginPage = () => {
                     </Col>
 
                     <Col md={4}>
-                       <button>Login</button>
+                       <BaseButton>Login</BaseButton>
                     </Col>
                 </Row>
             </Container>
