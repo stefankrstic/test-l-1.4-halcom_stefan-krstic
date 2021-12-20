@@ -1,0 +1,13 @@
+.buttons {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.buttons > * {
+    margin-right: 16px;
+
+}
+
+.buttons > *:last-child {
+    margin-right: 0;
+}
