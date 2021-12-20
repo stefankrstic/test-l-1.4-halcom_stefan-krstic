@@ -3,6 +3,7 @@ import { BaseButton } from "../components/BaseButton";
 import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
+import { Modal } from '../components/Modal';
 
 export const TestPage = () => {
     return (
@@ -39,6 +40,10 @@ export const TestPage = () => {
          </Row>
         
         </Container>
+
+        <Modal open={true} title="User Info">
+                Modal test content
+            </Modal>
         </div>
     )
 }

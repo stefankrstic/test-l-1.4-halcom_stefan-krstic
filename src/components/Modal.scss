@@ -1,0 +1,72 @@
+@import '~bootstrap/scss/bootstrap';
+
+.Modal {
+    .backdrop {
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        z-index: 10;
+    }
+
+    .wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20;
+    }
+
+    .body {
+        background-color: #e5e5e5;
+        width: 100%;
+        height: 100%;
+    }
+
+    @include media-breakpoint-up(sm) {
+        .body {
+            background-color: white;
+            width: 600px;
+            height: auto;
+        }
+    }
+
+    .header {
+        background-color: #a3a3a3;
+        padding: 8px 16px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon.chevron {
+            visibility: visible;
+        }
+
+        .icon.times {
+            visibility: hidden;
+        }
+
+        @include media-breakpoint-up(sm) {
+            .icon.chevron {
+                visibility: hidden;
+            }
+
+            .icon.times {
+                visibility: visible;
+            }
+        }
+    }
+
+    .content {
+        padding: 16px;
+    }
+}
