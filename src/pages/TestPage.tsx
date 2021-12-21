@@ -5,6 +5,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
 import { Modal } from '../components/Modal';
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const buttons = [1, 2, 3, 4, 5];
 
@@ -12,6 +13,7 @@ export const TestPage = () => {
     const user = useContext(UserContext);
     const [clicks, setClicks] = useState<Array<number>>([]);
     const [isRecording, setIsRecording] = useState(true);
+    const navigate = useNavigate();
 
     const handleClick = (button: number) => () => {
         if (isRecording) {
@@ -22,6 +24,11 @@ export const TestPage = () => {
     const handleStopClick = () => {
         setIsRecording(false);
     };
+
+    const handleExitClick = () => {
+        user.setState({name: '', surname: ''})
+        navigate('/');
+    }
 
     const getButtonColor = (button: number) => {
         if (isRecording) {
@@ -82,7 +89,7 @@ export const TestPage = () => {
                 <BaseButton color="blue">Statistika</BaseButton>
             </Col>
             <Col sm={3}>
-                <BaseButton color="blue">Izađi</BaseButton>
+                <BaseButton onClick={handleExitClick} color="blue">Izađi</BaseButton>
             </Col>
         </Row>
     )}  
