@@ -5,7 +5,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
 import { Modal } from '../components/Modal';
 import { UserContext } from "../context/UserContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const buttons = [1, 2, 3, 4, 5];
 
@@ -14,14 +14,13 @@ export const TestPage = () => {
     const [clicks, setClicks] = useState<Array<number>>([]);
     const [isRecording, setIsRecording] = useState(true);
     const navigate = useNavigate();
-    const location = useLocation();
 
     //Prevent opening this page if the user is not logged in.
     useEffect(() => {
         if (!user.name) {
             navigate('/');
         }
-    },[location, navigate, user]);
+    },[navigate, user]);
 
     const handleClick = (button: number) => () => {
         if (isRecording) {
@@ -37,6 +36,11 @@ export const TestPage = () => {
         user.setState({name: '', surname: ''})
         navigate('/');
     }
+
+    const handleResetClick = () => {
+        setClicks([]);
+        setIsRecording(true);
+    };
 
     const getButtonColor = (button: number) => {
         if (isRecording) {
@@ -88,7 +92,7 @@ export const TestPage = () => {
     {isRecording ? null : (
         <Row>
             <Col sm={3}>
-                <BaseButton color="red">Reset</BaseButton>
+                <BaseButton onClick={handleResetClick} color="red">Reset</BaseButton>
             </Col>
             <Col sm={3}>
                 <BaseButton color="blue">User Info</BaseButton>
