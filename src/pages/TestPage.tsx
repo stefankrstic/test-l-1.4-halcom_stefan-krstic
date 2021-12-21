@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BaseButton } from "../components/BaseButton";
 import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
 import { Modal } from '../components/Modal';
 import { UserContext } from "../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const buttons = [1, 2, 3, 4, 5];
 
@@ -14,6 +14,14 @@ export const TestPage = () => {
     const [clicks, setClicks] = useState<Array<number>>([]);
     const [isRecording, setIsRecording] = useState(true);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    //Prevent opening this page if the user is not logged in.
+    useEffect(() => {
+        if (!user.name) {
+            navigate('/');
+        }
+    },[location, navigate, user]);
 
     const handleClick = (button: number) => () => {
         if (isRecording) {
