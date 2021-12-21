@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BaseButton } from "../components/BaseButton";
 import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
 import { Modal } from '../components/Modal';
+import { UserContext } from "../context/UserContext";
 
 export const TestPage = () => {
+    const user = useContext(UserContext);
     return (
         <div className="TestPage"> 
-            <Header title="Kandidat : Pera Peric" />
+            <Header title={`Kandidat : ${user.name} ${user.surname}`} />
         <Container>
         <Row>
             <Col sm={8}>

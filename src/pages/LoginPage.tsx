@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 import { BaseButton } from "../components/BaseButton";
 import './LoginPage.scss';
+import { UserContext } from "../context/UserContext";
 
 export const LoginPage = () => {
 
@@ -14,6 +15,7 @@ export const LoginPage = () => {
     const [surname, setSurname] = useState('');
     const [isTouched, setIsTouched] = useState(false);
     const navigate = useNavigate();
+    const user = useContext(UserContext);
     
     const nameError = validate(name);
     const surnameError = validate(surname);
@@ -21,6 +23,7 @@ export const LoginPage = () => {
     
     const handleLoginClick = () => {
         navigate('/test')
+        user.setState({ name, surname })
     };
 
     return (
