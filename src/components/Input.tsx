@@ -5,16 +5,25 @@ import React from "react";
 import './Input.scss';
 
 interface InputProps {
+    value: string;
+    onChange: (value: string) => void;  
     label: string;
-    error?: string;
+    error?: string | null;
 }
 
-export const Input = ({label, error}: InputProps) => {
+export const Input = ({value, onChange, label, error}: InputProps) => {
   return (
       <div className="Input">
           <div className="group">
           <label className="label">{label} :</label>
-          <input className={clsx('input', error && 'invalid')} type="text" />
+          <input 
+              className={clsx('input', error && 'invalid')}
+              type="text"
+              value={value}
+              onChange={(event) =>{
+                onChange(event.target.value);
+              }} 
+            />
           </div>
     
         {error ? (

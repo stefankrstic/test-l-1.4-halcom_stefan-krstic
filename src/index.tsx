@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { App } from './components/App';
-import reportWebVitals from "./reportWebVitals";
+import reportWebVitals from './reportWebVitals';
 import 'bootstrap/scss/bootstrap.scss';
 
 ReactDOM.render(

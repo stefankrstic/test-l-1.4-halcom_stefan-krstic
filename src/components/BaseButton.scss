@@ -34,6 +34,10 @@
     &.gray {
         background-color: #a3a3a3;
     }
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }
 
 

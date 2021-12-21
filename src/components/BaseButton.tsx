@@ -6,9 +6,11 @@ interface BaseButtonProps {
     children: ReactNode;
     className?: string;
     color?: "blue" | "gray" | "green" | "orange" | "yellow" | "red";
+    disabled?: boolean;
+    onClick?: () => void;
 }
 
-export const BaseButton = ({children, className, color = 'blue'}: BaseButtonProps) => {
-    return <button className={clsx('BaseButton', className, color)}>{children}</button>
+export const BaseButton = ({children, className, color = 'blue', disabled, onClick}: BaseButtonProps) => {
+    return <button className={clsx('BaseButton', className, color)} disabled={disabled} onClick={onClick}>{children}</button>
     
 };
