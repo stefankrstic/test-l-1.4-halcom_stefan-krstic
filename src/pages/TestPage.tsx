@@ -7,6 +7,8 @@ import { UserInfoModal } from '../components/UserInfoModal';
 import { StatsModal } from '../components/StatsModal';
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 const buttons = [1, 2, 3, 4, 5];
 
@@ -91,11 +93,11 @@ export const TestPage = () => {
 
         <Col sm={4}>
             {isRecording ? (
-                <BaseButton onClick={handleStopClick} color="orange">
+                <BaseButton className="stop" onClick={handleStopClick} color="orange">
                     Stop
                 </BaseButton>
             ) : (
-                <div>
+                <div className="stats">
                     <div>Prvi klik : dugme br. {firstClick}</div>
                     <div>Poslednji klik : dugme br. {lastClick}</div>
                 </div>
@@ -103,7 +105,7 @@ export const TestPage = () => {
         </Col>
     </Row>
     {isRecording ? null : (
-        <Row>
+        <Row className="infoButtons">
             <Col sm={3}>
                 <BaseButton onClick={handleResetClick} color="red">Reset</BaseButton>
             </Col>
@@ -114,7 +116,9 @@ export const TestPage = () => {
                 <BaseButton color="skyblue" onClick={handleShowStatsClick}>Statistika</BaseButton>
             </Col>
             <Col sm={3}>
-                <BaseButton onClick={handleExitClick} color="blue">Izađi</BaseButton>
+                <BaseButton onClick={handleExitClick} color="blue">
+                    Izađi <FontAwesomeIcon icon={faDoorOpen} />
+                </BaseButton>
             </Col>
         </Row>
     )}  

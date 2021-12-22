@@ -5,9 +5,16 @@
     border: none;
     border-radius: $radius;
     color: white;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 2.6px;
+
+    svg {
+        margin: 0 $spacing;
+    }
 
     &:hover {
         opacity: 0.8;

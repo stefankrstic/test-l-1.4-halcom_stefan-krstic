@@ -1,9 +1,23 @@
+@import '../styles/variables.scss';
+
 .LoginPage {
-    .loginContainer {
+    inputs {
+        max-width: 500px;
+    }
+
+    .buttons {
         display: flex;
+        flex-direction: column;
+    }
+
+    .BaseButton {
+        margin-top: $spacing * 10;
+        margin-bottom: $spacing;
     }
     
-    .loginButton {
-        align-self: end;
+    @include media-breakpoint-up(sm) {
+        .BaseButton {
+            margin-top: auto;
+        }
     }
 }

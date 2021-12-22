@@ -3,6 +3,7 @@ import { Modal } from './Modal';
 import { BaseButton } from './BaseButton';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
+import './StatsModal.scss';
 
 interface StatsModalProps {
     open: boolean;
@@ -46,7 +47,7 @@ export const StatsModal = ({ open, onClose, clicks }: StatsModalProps) => {
                 </>
             }
         >
-            <div>
+            <div className='StatsModal'>
                 <div>Ukupan broj klikova : {clicks.length}</div>
                 <div>Prvo kliknuto dugme : {clicks[0]}</div>
                 <div>Poslednje kliknuto dugme : {clicks[clicks.length - 1]}</div>

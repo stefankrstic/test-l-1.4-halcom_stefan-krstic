@@ -1,6 +1,18 @@
+@import '../styles/variables.scss';
+
 .TestPage {
     .BaseButton {
-        margin-bottom: 16px;;
+        margin-bottom: $spacing * 2;
+    }
+
+    .stop {
+        margin-top: $spacing * 10;
+    }
+
+    @include media-breakpoint-up(sm) {
+        .stop {
+            margin-top: auto;
+        }
     }
 
     .buttons {
@@ -8,12 +20,26 @@
     }
 
     .buttons > * {
-        margin-right: 16px;
+        margin-right: $spacing * 2;
     
     }
     
     .buttons > *:last-child {
         margin-right: 0;
+    }
+    .stats {
+        margin-bottom: $spacing * 2;
+    }
+
+    // Phone
+    @include media-breakpoint-down(sm) {
+        .stats {
+            background-color: $yellow;
+            color: white;
+            padding: $spacing;
+            text-align: center;
+            line-height: 3;
+        }
     }
 }
 

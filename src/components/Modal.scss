@@ -50,6 +50,10 @@
         align-items: center;
         font-size: $text * 1.5;
 
+        .icon {
+            color: black;
+        }
+
         .icon.chevron {
             visibility: visible;
         }
@@ -90,9 +94,5 @@
                 margin-right: 0;
             }
         }
-    }
-
-    .icon {
-        color: black;
     }
 }

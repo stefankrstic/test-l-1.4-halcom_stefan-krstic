@@ -33,7 +33,7 @@ export const UserInfoModal = ({open, onClose}: UserInfoModalProps) => {
               </>
           }>
            <div className="UserInfoModal">
-               <FontAwesomeIcon size="4x" icon={faUser} />
+               <FontAwesomeIcon className="icon" size="4x" icon={faUser} />
               <div className="userInfo">
                   User : {user.name} {user.surname}
               </div>

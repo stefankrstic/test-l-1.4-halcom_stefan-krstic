@@ -31,31 +31,31 @@ export const LoginPage = () => {
             <Header title="Login stranica" centered />
             <Container>
                 <Row>
-                    <Col md={4}>
-                       <Input
-                          label="Ime" 
-                          value={name}  
-                          error={isTouched ? nameError : null}
-                          onChange={(name) => {
-                              setName(name);
-                              setIsTouched(true);
-                          }}
+                    <Col sm={9}>
+                        <div className="inputs">
+                            <Input
+                                label="Ime"
+                                value={name}
+                                error={isTouched ? nameError : null}
+                                onChange={(name) => {
+                                   setName(name);
+                                   setIsTouched(true);
+                            }}
                         />
-                       <Input 
-                         label="Prezime" 
-                         value={surname} 
-                         error={isTouched ? surnameError : null}
-                         onChange={(surname) => {
-                             setSurname(surname);
-                             setIsTouched(true);
-                         }} 
-                        />
+                            <Input
+                                label="Prezime"
+                                value={surname}
+                                error={isTouched ? surnameError : null}
+                                onChange={(surname) => {
+                                    setSurname(surname);
+                                    setIsTouched(true);
+                                }}
+                            />
+                        </div>
                     </Col>
 
-                    <Col md={2} />
-
-                    <Col className="loginContainer" md={2}>
-                       <BaseButton className="loginButton" disabled={!isValid} onClick={handleLoginClick}>
+                    <Col className="buttons" sm={3}>
+                        <BaseButton disabled={!isValid} onClick={handleLoginClick}>
                        <FontAwesomeIcon icon={faArrowRight} />
                        Login</BaseButton>
                     </Col>

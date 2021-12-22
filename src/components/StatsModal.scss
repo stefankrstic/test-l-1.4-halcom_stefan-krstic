@@ -1,0 +1,8 @@
+@import '../styles/variables.scss';
+
+.StatsModal {
+    border: 1px solid $blue;
+    background-color: white;
+    padding: $spacing * 2;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}

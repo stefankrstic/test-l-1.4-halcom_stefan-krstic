@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+body {
+    background-color: $light;
+}
+
+@include media-breakpoint-up(sm) {
+    body {
+        background-color: white;
+    }
+}
