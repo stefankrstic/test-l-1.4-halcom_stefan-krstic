@@ -4,6 +4,8 @@ import { UserContext } from '../context/UserContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import './UserInfoModal.scss';
+import { BaseButton } from "./BaseButton";
+import { useNavigate } from "react-router-dom";
 
 interface UserInfoModalProps {
     open: boolean;
@@ -12,9 +14,24 @@ interface UserInfoModalProps {
 
 export const UserInfoModal = ({open, onClose}: UserInfoModalProps) => {
     const user = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const handleGoToLoginClick = () => {
+        user.setState({name: '', surname: ''});
+        navigate('/');
+    }
 
     return (
-       <Modal open={open} onClose={onClose} title="User Info">
+       <Modal 
+          open={open} 
+          onClose={onClose} 
+          title="User Info" 
+          footer={
+              <>
+               <BaseButton color="red" onClick={onClose}>Zatvori</BaseButton>
+               <BaseButton color="blue" onClick={handleGoToLoginClick}>Go to Login</BaseButton>
+              </>
+          }>
            <div className="UserInfoModal">
                <FontAwesomeIcon size="4x" icon={faUser} />
               <div className="userInfo">

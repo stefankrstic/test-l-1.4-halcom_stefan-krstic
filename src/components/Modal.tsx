@@ -8,9 +8,10 @@ interface ModalProps {
     title: string;
     onClose?: () => void;
     children: ReactNode;
+    footer?: ReactNode;
 }
 
-export const Modal = ({ open, title, children, onClose }: ModalProps) => {
+export const Modal = ({ open, title, children, footer, onClose }: ModalProps) => {
     if (!open) {
         return null;
     }
@@ -34,6 +35,7 @@ export const Modal = ({ open, title, children, onClose }: ModalProps) => {
                     </div>
 
                     <div className="content">{children}</div>
+                    <div className="footer">{footer}</div>
                 </div>
             </div>
         </div>
