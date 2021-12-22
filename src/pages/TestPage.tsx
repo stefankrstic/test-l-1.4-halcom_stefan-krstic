@@ -1,14 +1,14 @@
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from "react";
 import { BaseButton } from "../components/BaseButton";
 import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
-import { UserInfoModal } from '../components/UserInfoModal';
 import { StatsModal } from '../components/StatsModal';
+import { UserInfoModal } from '../components/UserInfoModal';
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 const buttons = [1, 2, 3, 4, 5];
 
@@ -38,7 +38,7 @@ export const TestPage = () => {
     };
 
     const handleExitClick = () => {
-        user.setState({name: '', surname: ''})
+        user.logout();
         navigate('/');
     }
 

@@ -23,7 +23,7 @@ export const LoginPage = () => {
     
     const handleLoginClick = () => {
         navigate('/test')
-        user.setState({ name, surname })
+        user.login(name, surname);
     };
 
     return (

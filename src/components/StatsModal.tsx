@@ -16,7 +16,7 @@ export const StatsModal = ({ open, onClose, clicks }: StatsModalProps) => {
     const navigate = useNavigate();
 
     const handleGoToLoginClick = () => {
-        user.setState({ name: '', surname: '' });
+        user.logout();
         navigate('/');
     };
 
