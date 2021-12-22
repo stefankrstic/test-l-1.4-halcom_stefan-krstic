@@ -4,6 +4,7 @@ import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
 import { UserInfoModal } from '../components/UserInfoModal';
+import { StatsModal } from '../components/StatsModal';
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const buttons = [1, 2, 3, 4, 5];
 
 export const TestPage = () => {
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
+    const [showStatsModal, setShowStatsModal] = useState(false);
     const user = useContext(UserContext);
     const [clicks, setClicks] = useState<Array<number>>([]);
     const [isRecording, setIsRecording] = useState(true);
@@ -46,6 +48,10 @@ export const TestPage = () => {
     const handleShowUserInfoClick = () => {
         setShowUserInfoModal(true);
     }
+
+    const handleShowStatsClick = () => {
+        setShowStatsModal(true);
+    };
 
     const getButtonColor = (button: number) => {
         if (isRecording) {
@@ -103,7 +109,7 @@ export const TestPage = () => {
                 <BaseButton onClick={handleShowUserInfoClick} color="blue">User Info</BaseButton>
             </Col>
             <Col sm={3}>
-                <BaseButton color="blue">Statistika</BaseButton>
+                <BaseButton color="blue" onClick={handleShowStatsClick}>Statistika</BaseButton>
             </Col>
             <Col sm={3}>
                 <BaseButton onClick={handleExitClick} color="blue">Izađi</BaseButton>
@@ -113,6 +119,7 @@ export const TestPage = () => {
         </Container>
 
         <UserInfoModal open={showUserInfoModal} onClose={() => setShowUserInfoModal(false)} />
+        <StatsModal open={showStatsModal} onClose={() => setShowStatsModal(false)} clicks={clicks} />
         </div>
     )
 }
