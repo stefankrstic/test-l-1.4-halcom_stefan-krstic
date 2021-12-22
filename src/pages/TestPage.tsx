@@ -3,13 +3,14 @@ import { BaseButton } from "../components/BaseButton";
 import './TestPage.scss'
 import { Row, Col, Container } from 'react-bootstrap';
 import { Header } from "../components/Header";
-import { Modal } from '../components/Modal';
+import { UserInfoModal } from '../components/UserInfoModal';
 import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 const buttons = [1, 2, 3, 4, 5];
 
 export const TestPage = () => {
+    const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const user = useContext(UserContext);
     const [clicks, setClicks] = useState<Array<number>>([]);
     const [isRecording, setIsRecording] = useState(true);
@@ -41,6 +42,10 @@ export const TestPage = () => {
         setClicks([]);
         setIsRecording(true);
     };
+
+    const handleShowUserInfoClick = () => {
+        setShowUserInfoModal(true);
+    }
 
     const getButtonColor = (button: number) => {
         if (isRecording) {
@@ -95,7 +100,7 @@ export const TestPage = () => {
                 <BaseButton onClick={handleResetClick} color="red">Reset</BaseButton>
             </Col>
             <Col sm={3}>
-                <BaseButton color="blue">User Info</BaseButton>
+                <BaseButton onClick={handleShowUserInfoClick} color="blue">User Info</BaseButton>
             </Col>
             <Col sm={3}>
                 <BaseButton color="blue">Statistika</BaseButton>
@@ -107,9 +112,7 @@ export const TestPage = () => {
     )}  
         </Container>
 
-        <Modal open={false} title="User Info">
-                Modal test content
-            </Modal>
+        <UserInfoModal open={showUserInfoModal} onClose={() => setShowUserInfoModal(false)} />
         </div>
     )
 }

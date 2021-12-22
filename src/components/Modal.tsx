@@ -10,7 +10,7 @@ interface ModalProps {
     children: ReactNode;
 }
 
-export const Modal = ({ open, title, children }: ModalProps) => {
+export const Modal = ({ open, title, children, onClose }: ModalProps) => {
     if (!open) {
         return null;
     }
@@ -22,13 +22,13 @@ export const Modal = ({ open, title, children }: ModalProps) => {
             <div className="wrapper">
                 <div className="body">
                     <div className="header">
-                        <div className="icon chevron" role="button">
+                        <div className="icon chevron" role="button" onClick={onClose}>
                             <FontAwesomeIcon icon={faChevronLeft} />
                         </div>
 
                         {title}
 
-                        <div className="icon times" role="button">
+                        <div className="icon times" role="button" onClick={onClose}>
                             <FontAwesomeIcon icon={faTimes} />
                         </div>
                     </div>
