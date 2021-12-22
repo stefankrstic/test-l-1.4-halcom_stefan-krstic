@@ -5,7 +5,7 @@ import './BaseButton.scss';
 interface BaseButtonProps {
     children: ReactNode;
     className?: string;
-    color?: "blue" | "gray" | "green" | "orange" | "yellow" | "red";
+    color?: 'blue' | 'skyblue' | 'gray' | 'green' | 'orange' | 'yellow' | 'red';
     disabled?: boolean;
     onClick?: () => void;
 }

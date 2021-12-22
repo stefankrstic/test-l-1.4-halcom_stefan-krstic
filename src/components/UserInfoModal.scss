@@ -1,12 +1,14 @@
+@import '../styles/variables.scss';
+
 .UserInfoModal {
-    background-color: #60a5fa;
+    background-color: $skyblue;
     color: white;
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: $spacing * 2;
 
     .userInfo {
-        font-size: 20px;
-        margin-left: 16px;
+        font-size: $text * 2;
+        margin-left: $spacing * 2;
     }
 }

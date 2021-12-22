@@ -111,7 +111,7 @@ export const TestPage = () => {
                 <BaseButton onClick={handleShowUserInfoClick} color="blue">User Info</BaseButton>
             </Col>
             <Col sm={3}>
-                <BaseButton color="blue" onClick={handleShowStatsClick}>Statistika</BaseButton>
+                <BaseButton color="skyblue" onClick={handleShowStatsClick}>Statistika</BaseButton>
             </Col>
             <Col sm={3}>
                 <BaseButton onClick={handleExitClick} color="blue">Izađi</BaseButton>

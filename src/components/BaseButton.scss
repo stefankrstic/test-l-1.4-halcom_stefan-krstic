@@ -1,7 +1,9 @@
+@import '../styles/variables.scss';
+
 .BaseButton {
-    padding:  6px 12px;
+    padding:  $spacing $spacing * 2;
     border: none;
-    border-radius: 6px;
+    border-radius: $radius;
     color: white;
     display: inline-block;
     width: 100%;
@@ -12,27 +14,31 @@
     }
 
     &.blue {
-        background-color: #60A5FA;
+        background-color: $blue;
+    }
+
+    &.skyblue {
+        background-color: $skyblue;
     }
     
     &.orange {
-        background-color: #fb923c;
+        background-color: $orange;
     }
     
     &.yellow {
-        background-color: #facc15;
+        background-color: $yellow;
     }
     
     &.green {
-        background-color: #4ade8c;
+        background-color: $green;
     }
     
     &.red {
-        background-color: #f87171;
+        background-color: $red;
     }
     
     &.gray {
-        background-color: #a3a3a3;
+        background-color: $gray;
     }
 
     &:disabled {
