@@ -74,7 +74,9 @@ export const TestPage = () => {
 
     return (
         <div className="TestPage"> 
-            <Header title={`Kandidat : ${user.name} ${user.surname}`} />
+            <Header title={`${isRecording ? 'Kandidat :' : 'Well done'} ${user.name} ${user.surname}`}
+                    info={isRecording ? null : `Ukupan br. klikova : ${clicks.length}`} 
+            />
         <Container>
     <Row>
         <Col sm={8}>

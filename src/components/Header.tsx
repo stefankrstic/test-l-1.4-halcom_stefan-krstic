@@ -4,14 +4,16 @@ import './Header.scss';
 
 interface HeaderProps {
      title: string;
+     info?: string | null;
      centered?: boolean;
 
 }
 
-export const Header = ({title, centered}: HeaderProps) => {
+export const Header = ({title, info, centered}: HeaderProps) => {
     return (
-        <div className={clsx('Header', centered && 'centered')}>
-            {title}
+        <div className="Header">
+            <div className={clsx(centered && 'centered')}>{title}</div>
+            {info ? <div className="info">{info}</div> : null}
         </div>
     )
 }
