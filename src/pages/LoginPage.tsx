@@ -1,28 +1,27 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import React, { useContext, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Input } from "../components/Input";
-import { BaseButton } from "../components/BaseButton";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import React, { useContext, useState } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Header } from '../components/Header';
+import { Input } from '../components/Input';
+import { BaseButton } from '../components/BaseButton';
 import './LoginPage.scss';
-import { UserContext } from "../context/UserContext";
+import { UserContext } from '../context/UserContext';
 
 export const LoginPage = () => {
-
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [isTouched, setIsTouched] = useState(false);
     const navigate = useNavigate();
     const user = useContext(UserContext);
-    
+
     const nameError = validate(name);
     const surnameError = validate(surname);
-    const isValid = nameError === null && surnameError === null;   
-    
+    const isValid = nameError === null && surnameError === null;
+
     const handleLoginClick = () => {
-        navigate('/test')
+        navigate('/test');
         user.login(name, surname);
     };
 
@@ -38,10 +37,10 @@ export const LoginPage = () => {
                                 value={name}
                                 error={isTouched ? nameError : null}
                                 onChange={(name) => {
-                                   setName(name);
-                                   setIsTouched(true);
-                            }}
-                        />
+                                    setName(name);
+                                    setIsTouched(true);
+                                }}
+                            />
                             <Input
                                 label="Prezime"
                                 value={surname}
@@ -56,8 +55,9 @@ export const LoginPage = () => {
 
                     <Col className="buttons" sm={3}>
                         <BaseButton disabled={!isValid} onClick={handleLoginClick}>
-                       <FontAwesomeIcon icon={faArrowRight} />
-                       Login</BaseButton>
+                            <FontAwesomeIcon icon={faArrowRight} />
+                            Login
+                        </BaseButton>
                     </Col>
                 </Row>
             </Container>
@@ -70,9 +70,9 @@ const validate = (input: string): string | null => {
         return 'Polje je obavezno';
     }
 
-    if (!/^[a-zčćžšđ]+$/ig.test(input)) {
-        return 'Polje mora sadržati slova'
+    if (!/^[a-zčćžšđ]+$/gi.test(input)) {
+        return 'Polje mora sadržati slova';
     }
 
-    return null
+    return null;
 };

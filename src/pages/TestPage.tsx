@@ -1,14 +1,14 @@
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useEffect, useState } from "react";
-import { BaseButton } from "../components/BaseButton";
-import './TestPage.scss'
+import React, { useContext, useEffect, useState } from 'react';
+import { BaseButton } from '../components/BaseButton';
+import './TestPage.scss';
 import { Row, Col, Container } from 'react-bootstrap';
-import { Header } from "../components/Header";
+import { Header } from '../components/Header';
 import { StatsModal } from '../components/StatsModal';
 import { UserInfoModal } from '../components/UserInfoModal';
-import { UserContext } from "../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import { UserContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const buttons = [1, 2, 3, 4, 5];
 
@@ -25,7 +25,7 @@ export const TestPage = () => {
         if (!user.name) {
             navigate('/');
         }
-    },[navigate, user]);
+    }, [navigate, user]);
 
     const handleClick = (button: number) => () => {
         if (isRecording) {
@@ -40,7 +40,7 @@ export const TestPage = () => {
     const handleExitClick = () => {
         user.logout();
         navigate('/');
-    }
+    };
 
     const handleResetClick = () => {
         setClicks([]);
@@ -49,7 +49,7 @@ export const TestPage = () => {
 
     const handleShowUserInfoClick = () => {
         setShowUserInfoModal(true);
-    }
+    };
 
     const handleShowStatsClick = () => {
         setShowStatsModal(true);
@@ -75,57 +75,64 @@ export const TestPage = () => {
     const lastClick = clicks[clicks.length - 1];
 
     return (
-        <div className="TestPage"> 
-            <Header title={`${isRecording ? 'Kandidat :' : 'Well done'} ${user.name} ${user.surname}`}
-                    info={isRecording ? null : `Ukupan br. klikova : ${clicks.length}`} 
+        <div className="TestPage">
+            <Header
+                title={`${isRecording ? 'Kandidat :' : 'Well done'} ${user.name} ${user.surname}`}
+                info={isRecording ? null : `Ukupan br. klikova : ${clicks.length}`}
             />
-        <Container>
-    <Row>
-        <Col sm={8}>
-            <div className="buttons">
-                {buttons.map((button) => (
-                    <BaseButton key={button} onClick={handleClick(button)} color={getButtonColor(button)}>
-                       {button}
-                    </BaseButton>
-                ))}
-            </div>
-        </Col>
+            <Container>
+                <Row>
+                    <Col sm={8}>
+                        <div className="buttons">
+                            {buttons.map((button) => (
+                                <BaseButton key={button} onClick={handleClick(button)} color={getButtonColor(button)}>
+                                    {button}
+                                </BaseButton>
+                            ))}
+                        </div>
+                    </Col>
 
-        <Col sm={4}>
-            {isRecording ? (
-                <BaseButton className="stop" onClick={handleStopClick} color="orange">
-                    Stop
-                </BaseButton>
-            ) : (
-                <div className="stats">
-                    <div>Prvi klik : dugme br. {firstClick}</div>
-                    <div>Poslednji klik : dugme br. {lastClick}</div>
-                </div>
-            )}
-        </Col>
-    </Row>
-    {isRecording ? null : (
-        <Row className="infoButtons">
-            <Col sm={3}>
-                <BaseButton onClick={handleResetClick} color="red">Reset</BaseButton>
-            </Col>
-            <Col sm={3}>
-                <BaseButton onClick={handleShowUserInfoClick} color="blue">User Info</BaseButton>
-            </Col>
-            <Col sm={3}>
-                <BaseButton color="skyblue" onClick={handleShowStatsClick}>Statistika</BaseButton>
-            </Col>
-            <Col sm={3}>
-                <BaseButton onClick={handleExitClick} color="blue">
-                    Izađi <FontAwesomeIcon icon={faDoorOpen} />
-                </BaseButton>
-            </Col>
-        </Row>
-    )}  
-        </Container>
+                    <Col sm={4}>
+                        {isRecording ? (
+                            <BaseButton className="stop" onClick={handleStopClick} color="orange">
+                                Stop
+                            </BaseButton>
+                        ) : (
+                            <div className="stats">
+                                <div>Prvi klik : dugme br. {firstClick}</div>
+                                <div>Poslednji klik : dugme br. {lastClick}</div>
+                            </div>
+                        )}
+                    </Col>
+                </Row>
+                {isRecording ? null : (
+                    <Row className="infoButtons">
+                        <Col sm={3}>
+                            <BaseButton onClick={handleResetClick} color="red">
+                                Reset
+                            </BaseButton>
+                        </Col>
+                        <Col sm={3}>
+                            <BaseButton onClick={handleShowUserInfoClick} color="blue">
+                                User Info
+                            </BaseButton>
+                        </Col>
+                        <Col sm={3}>
+                            <BaseButton color="skyblue" onClick={handleShowStatsClick}>
+                                Statistika
+                            </BaseButton>
+                        </Col>
+                        <Col sm={3}>
+                            <BaseButton onClick={handleExitClick} color="blue">
+                                Izađi <FontAwesomeIcon icon={faDoorOpen} />
+                            </BaseButton>
+                        </Col>
+                    </Row>
+                )}
+            </Container>
 
-        <UserInfoModal open={showUserInfoModal} onClose={() => setShowUserInfoModal(false)} />
-        <StatsModal open={showStatsModal} onClose={() => setShowStatsModal(false)} clicks={clicks} />
+            <UserInfoModal open={showUserInfoModal} onClose={() => setShowUserInfoModal(false)} />
+            <StatsModal open={showStatsModal} onClose={() => setShowStatsModal(false)} clicks={clicks} />
         </div>
-    )
-}
+    );
+};

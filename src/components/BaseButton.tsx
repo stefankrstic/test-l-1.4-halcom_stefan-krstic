@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import React, { ReactNode } from "react";
+import clsx from 'clsx';
+import React, { ReactNode } from 'react';
 import './BaseButton.scss';
 
 interface BaseButtonProps {
@@ -10,7 +10,10 @@ interface BaseButtonProps {
     onClick?: () => void;
 }
 
-export const BaseButton = ({children, className, color = 'blue', disabled, onClick}: BaseButtonProps) => {
-    return <button className={clsx('BaseButton', className, color)} disabled={disabled} onClick={onClick}>{children}</button>
-    
+export const BaseButton = ({ children, className, color = 'blue', disabled, onClick }: BaseButtonProps) => {
+    return (
+        <button className={clsx('BaseButton', className, color)} disabled={disabled} onClick={onClick}>
+            {children}
+        </button>
+    );
 };

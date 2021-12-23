@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from 'react';
 
 interface UserState {
     name: string;
@@ -21,7 +21,7 @@ interface UserProviderProps {
     children: ReactNode;
 }
 
-export const UserProvider = ({children}: UserProviderProps) => {
+export const UserProvider = ({ children }: UserProviderProps) => {
     const [state, setState] = useState<UserState>({ name: '', surname: '' });
 
     const login = (name: string, surname: string) => {

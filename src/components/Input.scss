@@ -7,7 +7,7 @@
         display: flex;
         align-items: center;
     }
-    
+
     .label {
         margin-right: $spacing;
         width: $spacing * 10;
@@ -15,7 +15,7 @@
         text-align: right;
         white-space: nowrap;
     }
-    
+
     .input {
         padding: $spacing $spacing * 2;
         border-radius: $radius;
@@ -23,15 +23,14 @@
         display: block;
         width: 100%;
     }
-    
+
     .invalid {
         border: 1px solid $red;
     }
-    
+
     .error {
         color: $red;
         font-size: $text * 0.75;
         margin-left: 90px;
     }
 }
-
